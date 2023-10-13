@@ -36,6 +36,14 @@ class Problem1 {
         return multiplySum;
     }
 
+    private static int compareNumber(int addSum, int multiplySum) {
+        int result = multiplySum;
+        if (addSum > multiplySum) {
+            result = addSum;
+        }
+        return result;
+    }
+
     private static boolean validatePage(List<Integer>person) {
         int leftPage = person.get(0);
         int rightPage = person.get(1);
