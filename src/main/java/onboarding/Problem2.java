@@ -12,9 +12,18 @@ public class Problem2 {
             return "올바른 입력값이 아닙니다.";
         }
 
+        return deleteDuplicates(cryptogram);
     }
 
+    private static String deleteDuplicates(String cryptogram) {
+        StringBuilder uniqueAlphabet = new StringBuilder(cryptogram);
 
+        while (findConsecutiveDuplicate(uniqueAlphabet)) {
+            uniqueAlphabet = deleteConsecutiveDuplicate(uniqueAlphabet);
+        }
+
+        return uniqueAlphabet.toString();
+    }
 
     private static boolean findConsecutiveDuplicate(StringBuilder cryptogram) {
         for (int i = 1; i < cryptogram.length(); i++){
