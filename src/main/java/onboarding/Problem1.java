@@ -14,8 +14,16 @@ class Problem1 {
             return answer;
         }
 
-        return 0;
+    }
 
+    private static int addEachPage(int page){
+        int addSum = 0;
+        while (page > 0) {
+            int eachNum = page / 10;
+            addSum += eachNum;
+            page /= 10;
+        }
+        return addSum;
     }
 
     private static boolean validatePage(List<Integer>person) {
