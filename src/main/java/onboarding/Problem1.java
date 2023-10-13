@@ -10,7 +10,7 @@ class Problem1 {
 
         int largestPobiNumber = 0;
         int largetCrongNumber = 0;
-        if (validatePage(pobi) || validatePage(crong)) {
+        if (validatePage(pobi) == false || validatePage(crong) == false){
             answer = -1;
             return answer;
         }
@@ -24,14 +24,26 @@ class Problem1 {
         }
 
 
+        answer = gameWinner(largestPobiNumber, largetCrongNumber);
+        return answer;
+    }
 
+    private static int gameWinner(int pobi, int crong) {
+        if (pobi > crong) {
+            return 1;
+        }
+
+        else if (pobi < crong) {
+            return 2;
+        }
+
+        return 0;
     }
 
     private static int addEachPage(int page){
         int addSum = 0;
         while (page > 0) {
-            int eachNum = page / 10;
-            addSum += eachNum;
+            addSum += page % 10;
             page /= 10;
         }
         return addSum;
@@ -40,8 +52,7 @@ class Problem1 {
     private static int multiplyEachPage(int page){
         int multiplySum = 1;
         while (page > 0) {
-            int eachNum = page / 10;
-            multiplySum *= eachNum;
+            multiplySum *= page % 10;
             page /= 10;
         }
         return multiplySum;
