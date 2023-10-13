@@ -26,6 +26,16 @@ class Problem1 {
         return addSum;
     }
 
+    private static int multiplyPage(int page){
+        int multiplySum = 1;
+        while (page > 0) {
+            int eachNum = page / 10;
+            multiplySum *= eachNum;
+            page /= 10;
+        }
+        return multiplySum;
+    }
+
     private static boolean validatePage(List<Integer>person) {
         int leftPage = person.get(0);
         int rightPage = person.get(1);
