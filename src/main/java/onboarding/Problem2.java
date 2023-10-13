@@ -25,6 +25,16 @@ public class Problem2 {
         return false;
     }
 
+    private static StringBuilder deleteConsecutiveDuplicate(StringBuilder cryptogram) {
+        for(int i = 1; i < cryptogram.length(); i++){
+            if (cryptogram.charAt(i-1) == cryptogram.charAt(i)) {
+                cryptogram.delete(i - 1, i+1);
+            }
+        }
+        return cryptogram;
+    }
+
+
     private static boolean validateInput(String cryptogram) {
         if (cryptogram.length() < 1 || cryptogram.length() > 1000) {
             return false;
