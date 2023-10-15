@@ -1,5 +1,6 @@
 package onboarding;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Problem6 {
@@ -18,17 +19,16 @@ public class Problem6 {
         return false;
     }
 
-    private static boolean loopDuplicate(List<List<String>> forms) {
-        for(int i = 0; i < forms.size(); i++){
-            String nickname = forms.get(i).get(1);
-            for(int j = i + 1; j < forms.size(); j++){
-                String target = forms.get(j).get(1);
-
-                if (isDuplicate(nickname , target)) {
-                    return true;
-                }
-            }
+    private static List<String> addDuplicate(List<String> crew, List<String> compareCrew) {
+        List<String> result = new ArrayList<>();
+        String nickname = crew.get(1);
+        String target = compareCrew.get(1);
+        if (isDuplicate(nickname,target)) {
+            result.add(crew.get(0));
+            result.add(crew.get(1));
         }
-        return false;
+        return result;
     }
+
+
 }
