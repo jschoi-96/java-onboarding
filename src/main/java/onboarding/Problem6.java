@@ -17,4 +17,18 @@ public class Problem6 {
         }
         return false;
     }
+
+    private static boolean loopDuplicate(List<List<String>> forms) {
+        for(int i = 0; i < forms.size(); i++){
+            String nickname = forms.get(i).get(1);
+            for(int j = i + 1; j < forms.size(); j++){
+                String target = forms.get(j).get(1);
+
+                if (isDuplicate(nickname , target)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }
